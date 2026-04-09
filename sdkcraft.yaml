@@ -1,0 +1,25 @@
+name: vscode-remote
+adopt-info: version
+summary: VS Code Remote Development plugin support
+description: |
+  This SDK enables VS Code Remote Development over SSH in a workshop.
+  It configures the SSH server for passwordless access, so VS Code can
+  connect to the workshop as a remote host. The `.vscode-server` directory
+  is persisted on the host to preserve extensions and settings across
+  workshop updates.
+license: GPL-3.0
+platforms:
+  ubuntu@22.04:amd64:
+  ubuntu@24.04:amd64:
+plugs:
+  vscode-server:
+    interface: mount
+    workshop-target: /home/workshop/.vscode-server
+    mode: 0o700
+
+parts:
+  version:
+    plugin: nil
+    override-pull: |
+      VERSION=$(cat "$CRAFT_PROJECT_DIR/VERSION")
+      craftctl set version="$VERSION"

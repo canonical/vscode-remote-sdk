@@ -1,0 +1,14 @@
+USER="workshop"
+
+echo "Configuring SSH to allow password authentication and empty passwords..."
+sed -i 's/^#\?\(PasswordAuthentication\) .*/\1 yes/' /etc/ssh/sshd_config
+sed -i 's/^#\?\(PermitEmptyPasswords\) .*/\1 yes/' /etc/ssh/sshd_config
+sed -i 's/^#\?\(PermitRootLogin\) .*/\1 yes/' /etc/ssh/sshd_config
+
+rm -f /etc/ssh/sshd_config.d/*
+
+echo "Removing password for user: $USER..."
+passwd -d "$USER"
+
+echo "Restarting SSH service..."
+service ssh restart || systemctl restart ssh
