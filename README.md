@@ -22,7 +22,7 @@ sdks:
 
 This creates a workshop that accepts VS Code Remote SSH connections.
 After launch, open VS Code on the host, use **Remote-SSH: Connect to Host**,
-and enter `workshop@<ip>` (the IP is shown by `workshop info`).
+and enter `workshop@<ip>`.
 
 ---
 
