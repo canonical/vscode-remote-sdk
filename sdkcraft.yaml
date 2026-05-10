@@ -8,9 +8,10 @@ description: |
   is persisted on the host to preserve extensions and settings across
   workshop updates.
 license: GPL-3.0
+build-base: ubuntu@24.04
 platforms:
-  ubuntu@22.04:amd64:
-  ubuntu@24.04:amd64:
+  amd64:
+  arm64:
 plugs:
   vscode-server:
     interface: mount
