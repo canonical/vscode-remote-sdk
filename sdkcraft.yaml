@@ -8,7 +8,7 @@ description: |
   is persisted on the host to preserve extensions and settings across
   workshop updates.
 license: GPL-3.0
-build-base: ubuntu@24.04
+build-base: ubuntu@26.04
 platforms:
   amd64:
   arm64:
