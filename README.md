@@ -64,6 +64,21 @@ code --folder-uri vscode-remote://ssh-remote+workshop@<ip>/project
   component into this directory; the mount ensures it survives across workshop
   updates.
 
+The SDK also saves and restores SSH host keys during workshop refreshes so the
+refreshed workshop keeps the same SSH identity.
+
+## Troubleshooting
+
+If VS Code reports that the remote host key changed after a workshop refresh,
+remove the stale entry for the workshop IP from the host machine:
+
+```bash
+ssh-keygen -R <ip>
+```
+
+Reconnect with VS Code and accept the new key. Future refreshes should keep the
+same key once the SDK has persisted it.
+
 ## Slots (resources this SDK provides)
 
 This SDK doesn't define any slots.
