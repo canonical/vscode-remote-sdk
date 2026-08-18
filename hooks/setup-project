@@ -1,7 +1,0 @@
-echo "Removing password for user: $USER..."
-sudo passwd -d "$USER"
-sudo passwd -u "$USER"
-
-
-echo "Restarting SSH service..."
-sudo service ssh restart || sudo systemctl restart ssh

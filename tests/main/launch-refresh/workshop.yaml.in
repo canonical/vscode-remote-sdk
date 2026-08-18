@@ -1,4 +1,0 @@
-name: test-vscode-remote
-base: ${BASE}
-sdks:
-  - name: try-vscode-remote
