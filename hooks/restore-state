@@ -1,8 +1,0 @@
-[ -n "$SDK_STATE_DIR" ] || exit 0
-if ls "$SDK_STATE_DIR"/ssh_host_*_key >/dev/null 2>&1; then
-    echo "Restoring SSH host keys..."
-    cp --archive -- "$SDK_STATE_DIR"/ssh_host_* /etc/ssh/
-
-    # sshd reads host keys at startup, so reload it after restoring keys.
-    service ssh restart || systemctl restart ssh
-fi

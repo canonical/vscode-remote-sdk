@@ -1,11 +1,2 @@
-if ! (systemctl --wait is-active --quiet ssh.socket \
-   || systemctl --wait is-active --quiet ssh.service); then
-    workshopctl set-health error "SSH service/socket not running"
-    exit 1
-fi
-
-ip=$(hostname -I | awk '{print $1}')
-echo -n "VS Code → Open Remote Window → Connect to host → workshop@$ip
-or from the terminal,
-code --folder-uri vscode-remote://ssh-remote+workshop@$ip/project"
+echo -n "VS Code Remote SDK workshop is deprecated. See https://ubuntu.com/workshop/docs/how-to/develop-with-workshops/connect-vscode/"
 workshopctl set-health okay
